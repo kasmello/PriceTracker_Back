@@ -1,0 +1,4 @@
+python-dotenv==1.0.0
+requests==2.25.1
+neo4j==5.16.0
+tqdm
