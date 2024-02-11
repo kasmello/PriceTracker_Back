@@ -29,7 +29,7 @@ def insert_data_into_db(xml,query_date,product,driver):
                 MERGE (b)-[:OWNS]->(p)\nMERGE (l)-[:CONTAINS]->(p)\n'
 
         query_str += f'MERGE (d:DATE_{PRODUCT[product]} {{date: "{query_date}"}})\n\
-            MERGE (d)-[path:PRICED_AT]->(p)\nON CREATE SET path.price={item["price"]}'
+            MERGE (d)-[path:PRICED_AT]->(p)\nON CREATE SET path.price={float(item["price"])}'
         driver.execute_query(query_str)
 
 def loop_historical_data(days, driver):
